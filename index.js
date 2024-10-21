@@ -110,7 +110,7 @@ app.get('/', (request, response) => {
       mongoose.connection.close()
     })
 
-    response.send('<h1>Nota Creada correctamente!</h1>')
+    response.send('<h1>Nota Creada correctamente:'+ content +'</h1>')
 
   })
   
