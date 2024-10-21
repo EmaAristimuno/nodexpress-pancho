@@ -64,8 +64,8 @@ app.get('/', (request, response) => {
       }
       run().catch(console.dir);
 
-    response.json(notes)
-  })
+      response.json({ok:"Pinged your deployment. You successfully connected to MongoDB!"})
+    })
 
   app.get('/api/notes/:id', (request, response) => {
     const id = Number(request.params.id)
