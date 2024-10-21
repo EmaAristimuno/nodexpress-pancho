@@ -83,6 +83,36 @@ app.get('/', (request, response) => {
   
     response.status(204).end()
   })
+
+  app.get('/api/mongo/:content', (request, response) => {
+    const content = request.params.content
+    const mongoose = require('mongoose')
+    const url = "mongodb+srv://emadb:<tesis2024>@cluster0.ylbc2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    
+    mongoose.set('strictQuery',false)
+    
+    mongoose.connect(url)
+    
+    const noteSchema = new mongoose.Schema({
+      content: String,
+      important: Boolean,
+    })
+    
+    const Note = mongoose.model('Note', noteSchema)
+    
+    const note = new Note({
+      content: content,
+      important: true,
+    })
+    
+    note.save().then(result => {
+      console.log('note saved!')
+      mongoose.connection.close()
+    })
+
+    response.send('<h1>Nota Creada correctamente!</h1>')
+
+  })
   
   const PORT = process.env.PORT || 3001
   app.listen(PORT, () => {
