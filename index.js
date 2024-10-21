@@ -38,8 +38,9 @@ app.get('/', (request, response) => {
 
   app.get('/api/mongo', (request, response) => {
     
-      const { MongoClient, ServerApiVersion } = require('mongodb');
-      const uri = "mongodb+srv://emadb:<tesis2024>@cluster0.ylbc2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    const { MongoClient, ServerApiVersion } = require('mongodb');
+    const uri = "MONGODB_URI=mongodb+srv://pancho:<tesis2024>@cluster0.ylbc2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    console.log("uri", uri)
 
       // Create a MongoClient with a MongoClientOptions object to set the Stable API version
       const client = new MongoClient(uri, {
