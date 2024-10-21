@@ -87,7 +87,7 @@ app.get('/', (request, response) => {
   app.get('/api/mongo/:content', (request, response) => {
     const content = request.params.content
     const mongoose = require('mongoose')
-    const url = "mongodb+srv://emadb:<tesis2024>@cluster0.ylbc2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    const url = "mongodb+srv://pancho:<tesis2024>@cluster0.ylbc2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     
     mongoose.set('strictQuery',false)
     
